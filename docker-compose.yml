@@ -1,0 +1,31 @@
+version: "3.8"
+
+services:
+
+  mysql:
+    image: mysql:8
+    container_name: cardapio-mysql
+    restart: always
+    environment:
+      MYSQL_DATABASE: cardapio_db
+      MYSQL_USER: admin
+      MYSQL_PASSWORD: 123
+      MYSQL_ROOT_PASSWORD: 123
+    ports:
+      - "3306:3306"
+    volumes:
+      - db_data:/var/lib/mysql
+
+  backend:
+    build: ./backend
+    container_name: cardapio-backend
+    restart: always
+    environment:
+      MYSQL_HOST: mysql
+    ports:
+      - "8080:8080"
+    depends_on:
+      - mysql
+
+volumes:
+  db_data:
