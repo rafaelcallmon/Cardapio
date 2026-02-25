@@ -1,12 +1,10 @@
 import { useState } from 'react'
 import './App.css'
 import { Card } from './components/card/card'
-import type { FoodData } from './interface/FoodData'
 import { useFoodData } from './hooks/useFoodData'
 import { CreateModal } from './components/card/create-modal/create-modal'
 
 function App() {
-
   const {data} = useFoodData();
   const [isModalOpen, setIsModalOpen] = useState(false)
   const handleOpenModal = () => {
@@ -28,6 +26,7 @@ function App() {
       {isModalOpen && <CreateModal closeModal = {handleOpenModal} />}
       <button onClick={handleOpenModal}>novo</button>
     </div>
+    
   )
 }
 

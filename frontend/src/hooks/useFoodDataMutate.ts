@@ -1,6 +1,6 @@
 import axios, { type AxiosPromise } from "axios"
 import type { FoodData } from "../interface/FoodData";
-import { useMutation, useQuery, useQueryClient } from "@tanstack/react-query";
+import { useMutation, useQueryClient } from "@tanstack/react-query";
 
 const API_URL = import.meta.env.VITE_API_URL
 
